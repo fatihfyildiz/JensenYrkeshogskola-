@@ -2,7 +2,7 @@ package org.example.Lektion3_if_else;
 
 import java.util.Scanner;
 
-public class Önvivng_Lektion3_Miniräknare {
+public class Övning_Lektion3_Miniräknare {
 
     public static void main(String[] args) {
 
