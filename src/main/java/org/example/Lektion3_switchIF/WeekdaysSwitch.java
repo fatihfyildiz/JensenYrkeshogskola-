@@ -1,4 +1,4 @@
-package org.example.Lektion3_switch;
+package org.example.Lektion3_switchIF;
 
 import java.util.Scanner;
 
