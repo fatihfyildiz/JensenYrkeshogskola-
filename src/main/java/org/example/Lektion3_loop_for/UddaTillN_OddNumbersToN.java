@@ -28,6 +28,8 @@ public class UddaTillN_OddNumbersToN {
 
         System.out.println(); // Print a newline to separate the output
 
+        scanner.close();
+
 
     }
 }

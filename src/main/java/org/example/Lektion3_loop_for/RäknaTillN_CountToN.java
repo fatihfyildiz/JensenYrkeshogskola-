@@ -26,6 +26,6 @@ public class RäknaTillN_CountToN {
 
         System.out.println(); // Print a newline to separate the output
 
-
+        scanner.close();
     }
 }

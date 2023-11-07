@@ -38,5 +38,7 @@ public class DaysMonth {
         }
 
         System.out.println("Number of days in " + month + " is " + days);
+
+        scanner.close();
     }
 }
