@@ -16,7 +16,7 @@ public class FleraTabeller_SeveralTables {
         for (int i = 0; i <=N; i++) {
             for (int j = 0; j <=N; j++) {
 
-                System.out.println(i + "* " + j + "= " + i*j);
+                System.out.println(i + "* " + j + " = " + i*j);
 
             }
 
