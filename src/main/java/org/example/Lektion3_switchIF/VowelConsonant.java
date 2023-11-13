@@ -8,7 +8,7 @@ public class VowelConsonant {
         // Skriv ett program som kontrollerar om en inmatad bokstav är en vokal eller konsonant.
         // Write a program that checks whether an entered letter is a vowel or a consonant.
 
-        String vokaler = "AEOUÖÄÅY";
+        String vokaler = "AEOUIÖÄÅY";
 
         System.out.println("Please enter a letter");
 
