@@ -3,8 +3,9 @@ package org.example.JUnit;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
-public class personTest {
+public class PersonTest {
 
     @Test
     public void fullNameTest(){
@@ -14,5 +15,10 @@ public class personTest {
         String actualResult= person.getFullName("Fatih", "Yildiz");
 
         assertEquals("Fatih Yildiz", actualResult);
+    }
+
+    @Test
+    public void stringLengthNull(){
+        assertThrows(IllegalArgumentException.class, () -> Person.StringLength(null));
     }
 }

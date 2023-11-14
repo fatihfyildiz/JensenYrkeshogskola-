@@ -3,6 +3,7 @@ package org.example.JUnit;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class CalculatorTest {
 
@@ -28,6 +29,7 @@ public class CalculatorTest {
             Calculator calculator= new Calculator();
             int result= calculator.division(10,2);
             assertEquals(5,result);
+            // assertThrows(ArithmeticException.class, () -> Calculator.division(10, 0));
         }
 
         @Test
