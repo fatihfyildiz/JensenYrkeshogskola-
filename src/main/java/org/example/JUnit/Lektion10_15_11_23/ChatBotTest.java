@@ -14,6 +14,7 @@ public class ChatBotTest {
         String reply= chatBot.reply("Hello!");
 
         assertEquals("Hi!", reply);
+        assertEquals("Hi!", chatBot.reply("Hello!"));
     }
 
 }

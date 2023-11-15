@@ -1,4 +1,4 @@
-package org.example.JUnit;
+package org.example.JUnit.Lektion9_14_11_23;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class CalculatorTest {
 
             Calculator calculator = new Calculator();
             int result = calculator.add(2, 3);
-            assertEquals(4,result);
+            assertEquals(5,result);
 
         }
 
