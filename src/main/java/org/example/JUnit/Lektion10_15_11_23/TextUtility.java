@@ -6,7 +6,9 @@ public class TextUtility {
 
         String formattedString= str.replaceAll("[^a-zA-Z0-9]"," ");
         formattedString = formattedString.replaceAll(" ","");
-        StringBuilder stringBuilder= new StringBuilder();
+        // instead of the two code rows above, we can use just a one code row as below:
+        // String formattedString= str.replaceAll("[^a-zA-Z0-9]","");
+        StringBuilder stringBuilder= new StringBuilder(formattedString);
         String reversed = stringBuilder.reverse().toString();
 
         if (reversed.toLowerCase().equals(formattedString.toLowerCase())){
