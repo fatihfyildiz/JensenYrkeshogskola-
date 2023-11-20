@@ -16,7 +16,7 @@ public class WriteToFile {
             bufferedWriter.newLine();
             bufferedWriter.write("Welcome to Java file handling.");
 
-            bufferedWriter.close();
+            bufferedWriter.close(); // If we don't close, it doesn't write. So, not to forget close
 
         } catch (IOException e) {
             System.out.println("An error occurred.");
