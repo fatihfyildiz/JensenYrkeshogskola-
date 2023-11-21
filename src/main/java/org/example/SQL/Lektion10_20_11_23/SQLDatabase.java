@@ -1,4 +1,4 @@
-package org.example.SQL;
+package org.example.SQL.Lektion10_20_11_23;
 
 import java.sql.*;
 
@@ -31,6 +31,7 @@ public class SQLDatabase {
             stmt.execute(sql);
             stmt.close();
             conn.close();
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

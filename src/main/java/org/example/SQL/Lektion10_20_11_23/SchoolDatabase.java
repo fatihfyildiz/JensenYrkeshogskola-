@@ -1,4 +1,4 @@
-package org.example.SQL;
+package org.example.SQL.Lektion10_20_11_23;
 
 import java.sql.*;
 
@@ -14,7 +14,8 @@ public class SchoolDatabase {
 
         displaySchoolData();
 
-        deleteStudent("Yngve");
+        deleteStudent("Yngve"); // deleteStudent("Yngve' OR name = 'Karin")
+        // Since Java reads starting/ending with ' we should use ' after Yngve and before Karin
 
         displaySchoolData();
     }
