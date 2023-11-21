@@ -12,6 +12,7 @@ public class UserSystem {
                 System.out.println("(1) Login");
                 System.out.println("(2) Register");
                 System.out.println("(3) Change Password");
+                System.out.println("(4) Delete User"); // This is the home-work to be done
                 String choice = scanner.nextLine();
 
                 switch (choice){
@@ -48,6 +49,13 @@ public class UserSystem {
                         System.out.println("Password : ");
                         String password2 = scanner.nextLine();
                         changePassword(username2,password2);
+                        break;
+
+                    case "4": // This is the home-work to be done
+                        System.out.println("____Delete User____");
+                        System.out.println("Username : ");
+                        String username3 = scanner.nextLine();
+                        deleteUser(username3);
                         break;
                 }
             }
@@ -89,16 +97,15 @@ public class UserSystem {
                     //Get the password for the user with 'username'
                     String correctPassword = rs.getString("password");
                     if (correctPassword.equals(password)){
+
+                        rs.close();
+                        preparedStatement.close();
+                        conn.close();
                         return true;
                     }
 
                     //Check if password is correct. Then return true otherwise false
 
-                }else {
-                    //There were no results in the result set, meaning that there is no user with that username
-                    //Maybe return false?
-                    System.out.println("No user");
-                    return false;
                 }
 
                 rs.close();
@@ -151,6 +158,22 @@ public class UserSystem {
                 preparedStatement.setString(2,username);
 
                 preparedStatement.executeUpdate();
+                conn.close();
+                preparedStatement.close();
+                return true;
+
+            } catch (Exception e){
+                return false;
+            }
+
+        }
+
+        public static boolean deleteUser(String username){ // This is the home-work to be done
+            try {
+                Connection conn = DriverManager.getConnection("jdbc:sqlite:userRepo.db");
+                String sql = "DELETE FROM users WHERE username = '" + username + "'";
+                Statement stmnt = conn.createStatement();
+                stmnt.execute(sql);
 
                 return true;
 
