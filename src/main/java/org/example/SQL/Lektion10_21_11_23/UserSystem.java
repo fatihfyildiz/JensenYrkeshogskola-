@@ -11,6 +11,7 @@ public class UserSystem {
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("(1) Login");
                 System.out.println("(2) Register");
+                System.out.println("(3) Change Password");
                 String choice = scanner.nextLine();
 
                 switch (choice){
@@ -38,9 +39,19 @@ public class UserSystem {
                         }else {
                             System.out.println("Registration failed");
                         }
+                        break;
 
+                    case "3":
+                        System.out.println("____Change Password____");
+                        System.out.println("Username : ");
+                        String username2 = scanner.nextLine();
+                        System.out.println("Password : ");
+                        String password2 = scanner.nextLine();
+                        changePassword(username2,password2);
+                        break;
                 }
             }
+
         }
 
         public static void CreateDatabase(){
@@ -125,6 +136,27 @@ public class UserSystem {
 
             }
 
+
+        }
+
+        public static boolean changePassword(String username, String newPassword){
+            try {
+                Connection conn = DriverManager.getConnection("jdbc:sqlite:userRepo.db");
+                String sql = "UPDATE users " +
+                            "SET password = ? " +
+                            "WHERE username = ?";
+
+                PreparedStatement preparedStatement= conn.prepareStatement(sql);
+                preparedStatement.setString(1,newPassword);
+                preparedStatement.setString(2,username);
+
+                preparedStatement.executeUpdate();
+
+                return true;
+
+            } catch (Exception e){
+                return false;
+            }
 
         }
 
