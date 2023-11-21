@@ -1,4 +1,4 @@
-package org.example.JUnit.Lektion9_14_11_23;
+package org.example.JUnit_Lektioner9_10.Lektion9_14_11_23;
 
 import org.junit.jupiter.api.Test;
 

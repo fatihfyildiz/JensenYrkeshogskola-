@@ -64,23 +64,30 @@ public class UserSystem {
         public static boolean login(String username,String password){
 
             try{
-                Connection conn = DriverManager.getConnection("jdbc:sqlite:school.db");
+                Connection conn = DriverManager.getConnection("jdbc:sqlite:userRepo.db");
                 String sql = "SELECT password FROM users WHERE username = ?";
                 PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                preparedStatement.setString(1,username);
 
                 //Execute the query
-                ResultSet rs = preparedStatement.executeQuery(sql);
+                ResultSet rs = preparedStatement.executeQuery();
 
                 //Get the first result i.e the user selected from the query.
                 if (rs.next()){
 
                     //Get the password for the user with 'username'
                     String correctPassword = rs.getString("password");
+                    if (correctPassword.equals(password)){
+                        return true;
+                    }
 
                     //Check if password is correct. Then return true otherwise false
+
                 }else {
                     //There were no results in the result set, meaning that there is no user with that username
                     //Maybe return false?
+                    System.out.println("No user");
+                    return false;
                 }
 
                 rs.close();
@@ -97,23 +104,28 @@ public class UserSystem {
         //Save the username and password in the database.
         public static boolean register(String username,String password){
 
+            boolean result= false;
+
+
             try {
                 Connection conn = DriverManager.getConnection("jdbc:sqlite:userRepo.db");
-                String sql = "INSERT INTO users (username,passwords) VALUES (?,?)";
+                String sql = "INSERT INTO users(username,password) VALUES (?, ?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1,username);
                 pstmt.setString(2,password);
-                pstmt.execute(sql);
-                pstmt.close();
-                conn.close();
+                pstmt.executeUpdate();
 
+                conn.close();
+                pstmt.close();
+
+                return true;
 
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                return false;
+
             }
 
-            return false;
-        }
 
+        }
 
 }

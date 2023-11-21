@@ -1,4 +1,4 @@
-package org.example.JUnit.Lektion10_20_11_23;
+package org.example.JUnit_Lektioner9_10.Lektion10_20_11_23;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
