@@ -86,6 +86,7 @@ public class UserSystem {
                 Connection conn = DriverManager.getConnection("jdbc:sqlite:userRepo.db");
                 String sql = "SELECT password FROM users WHERE username = ?";
                 PreparedStatement preparedStatement = conn.prepareStatement(sql);
+                // *** Since we will enter data (username) by setString OR setInt, we must use PreparedStatement *** *** (FFY)
                 preparedStatement.setString(1,username);
 
                 //Execute the query
@@ -129,6 +130,8 @@ public class UserSystem {
                 Connection conn = DriverManager.getConnection("jdbc:sqlite:userRepo.db");
                 String sql = "INSERT INTO users(username,password) VALUES (?, ?)";
                 PreparedStatement pstmt = conn.prepareStatement(sql);
+                // *** Since we will enter data (username & password) by setString OR setInt,
+                // we must use PreparedStatement *** *** (FFY)
                 pstmt.setString(1,username);
                 pstmt.setString(2,password);
                 pstmt.executeUpdate();
@@ -154,6 +157,8 @@ public class UserSystem {
                             "WHERE username = ?";
 
                 PreparedStatement preparedStatement= conn.prepareStatement(sql);
+                // *** Since we will enter data (username & password) by setString OR setInt,
+                // we must use PreparedStatement *** *** (FFY)
                 preparedStatement.setString(1,newPassword);
                 preparedStatement.setString(2,username);
 
@@ -182,5 +187,24 @@ public class UserSystem {
             }
 
         }
+
+    public static void getData(){
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:sqlite:userRepo.db");
+            Statement stmt = connection.createStatement();
+            String sql = "SELECT username,password FROM users";
+            ResultSet rs = stmt.executeQuery(sql);
+            while(rs.next()){
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                System.out.println(" NAME :" + username+ " Password :"+ password);
+            }
+            rs.close();
+            connection.close();
+            stmt.close();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
 
 }
