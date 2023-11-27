@@ -125,7 +125,6 @@ public class UserSystem {
 
             boolean result= false;
 
-
             try {
                 Connection conn = DriverManager.getConnection("jdbc:sqlite:userRepo.db");
                 String sql = "INSERT INTO users(username,password) VALUES (?, ?)";
