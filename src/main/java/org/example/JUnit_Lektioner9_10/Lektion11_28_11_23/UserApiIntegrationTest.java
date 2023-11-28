@@ -1,4 +1,4 @@
-package org.example.JUnit_Lektioner9_10.Lektion11_27_11_23;
+package org.example.JUnit_Lektioner9_10.Lektion11_28_11_23;
 
 import org.junit.jupiter.api.Test;
 
@@ -48,5 +48,25 @@ public class UserApiIntegrationTest {
                 .when().get("/users/{userId}")
                 .then().assertThat().statusCode(200);
     }
+
+    @Test
+    public void testApiÖvning4() {
+        given().baseUri("https://jsonplaceholder.typicode.com")
+                .pathParam("userId",1)
+                .when().get("/posts?userId={userId}")
+                .then().assertThat().statusCode(200);
+    }
+
+    @Test
+    public void testApiÖvning4fatih() {
+        given().baseUri("https://jsonplaceholder.typicode.com")
+                .pathParam("userId",1)
+                .when().get("/posts?userId={userId}")
+                .then().assertThat().statusCode(200)
+                .body("[1].id",equalTo(2))
+                .body("[1].title",equalTo("qui est esse"));
+    }
+
+
 
 }
