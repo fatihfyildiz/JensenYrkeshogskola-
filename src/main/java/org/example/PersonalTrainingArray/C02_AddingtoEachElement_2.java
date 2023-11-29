@@ -2,7 +2,7 @@ package org.example.PersonalTrainingArray;
 
 import java.util.Arrays;
 
-public class C01_AddingToEachElement_1 {
+public class C02_AddingtoEachElement_2 {
 
     public static void main(String[] args) {
 
@@ -12,9 +12,13 @@ public class C01_AddingToEachElement_1 {
         int[] arr= {2,4,6,8};
         int increaseAmount= 3;
 
-        arr= addingElements(arr, increaseAmount);
+        int[] newArray= addingElements(arr, increaseAmount);
 
-        System.out.println("The old array now becomes: " + Arrays.toString(arr));
+        System.out.println("New array: " + Arrays.toString(newArray));
+
+        arr=newArray;
+
+        System.out.println("The old array now becomes: " + Arrays.toString(newArray));
 
     }
 
@@ -22,11 +26,9 @@ public class C01_AddingToEachElement_1 {
 
         for (int i = 0; i < arr.length; i++) {
 
-            arr [i] += increaseAmount; // or  arr [i] = arr [i] + increaseAmount;
+            arr [i] = arr [i] + increaseAmount; // arr [i] += increaseAmount;
         }
         return arr;
     }
-
-
 
 }
