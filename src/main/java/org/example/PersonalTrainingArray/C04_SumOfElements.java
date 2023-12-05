@@ -20,6 +20,7 @@ public class C04_SumOfElements {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i]>0)
                 result +=arr[i];
+
         }
 
         return result;
