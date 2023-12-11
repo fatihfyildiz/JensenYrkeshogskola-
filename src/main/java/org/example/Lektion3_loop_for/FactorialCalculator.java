@@ -10,6 +10,7 @@ public class FactorialCalculator {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter a number: ");
+
         int number = scanner.nextInt();
 
         if (number < 0) { // Check if the number is non-negative
