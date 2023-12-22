@@ -17,7 +17,9 @@ public class StackTest {
         stack.push("Lisa");
 
         assertEquals("Lisa",stack.pop());
+
         assertEquals("Kalle",stack.pop());
+
         assertEquals(null,stack.pop());
         
     }
