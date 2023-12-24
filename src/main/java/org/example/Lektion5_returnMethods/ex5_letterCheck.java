@@ -12,6 +12,7 @@ public class ex5_letterCheck {
 
         if (vowels.contains(letter.toUpperCase())){
             return true;
+
         } else
             return false;
     }
